@@ -2,7 +2,6 @@ package com.wbtcb.fiatmanager.config
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.amqp.core.Message
-import org.springframework.amqp.core.Queue
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory
 import org.springframework.amqp.rabbit.connection.ConnectionFactory
 import org.springframework.amqp.rabbit.core.RabbitTemplate
