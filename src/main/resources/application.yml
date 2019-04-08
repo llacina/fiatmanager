@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: ${ENV_DATASOURCE_URL:jdbc:postgresql://localhost:5432/fiatmanager}
+    password: ${ENV_DATASOURCE_PASSWORD:fiatmanager}
+    username: ${ENV_DATASOURCE_USERNAME:fiatmanager}
+    hikari:
+      schema: fiatmanager
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    schemas: fiatmanager
+  rabbitmq:
+    host: ${ENV_RABBIT_HOST:localhost}
+    username: ${ENV_RABBIT_USERNAME:fiatmanager}
+    password: ${ENV_RABBIT_PASSWORD:fiatmanager}
+    listener:
+      simple:
+        default-requeue-rejected: false
+
+fiatmanager:
+  security:
+    aes:
+      # The security key for decrypt wallet.password and wallet.passphrase
+      key: ${ENV_SECURITY_AES_KEY:}
+  ident:
+    environment: ${ENV_IDENT_ENVIRONMENT:local}
+    node: ${ENV_IDENT_NODE:localhost}
