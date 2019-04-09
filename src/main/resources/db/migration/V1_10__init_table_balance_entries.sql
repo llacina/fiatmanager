@@ -10,9 +10,10 @@ CREATE TABLE balance_entries (
     channel_id INTEGER not null,
     currency_code VARCHAR(3) not null,
     request_id INTEGER not null,
-    transaction_id INTEGER,
+    transaction_id INTEGER not null,
     amount numeric(18,8) not null,
     status character varying(10) not null,
+    type VARCHAR(10) not null,
     created_at timestamp without time zone default now() not null
 );
 
@@ -26,7 +27,7 @@ ALTER TABLE balance_entries ADD CONSTRAINT balance_entries_ref_currency_code_fke
 -- Add reference to requests
 ALTER TABLE balance_entries ADD CONSTRAINT balance_entries_ref_request_id_fkey FOREIGN KEY (request_id) REFERENCES requests (id);
 -- Add reference to transactions
-ALTER TABLE balance_entries ADD CONSTRAINT balance_entries_ref_transactions_id_fkey FOREIGN KEY (transaction_id) REFERENCES transactions (id);
+ALTER TABLE balance_entries ADD CONSTRAINT balance_entries_ref_transaction_id_fkey FOREIGN KEY (transaction_id) REFERENCES transactions (id);
 
 COMMENT ON TABLE balance_entries
   IS 'Representation of balance item';

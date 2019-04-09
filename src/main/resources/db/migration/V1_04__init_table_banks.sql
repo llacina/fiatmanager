@@ -5,8 +5,7 @@
 CREATE SEQUENCE sq_banks_id;
 
 CREATE TABLE banks (
-  id INTEGER PRIMARY KEY default nextval('sq_banks_id'),
-  code VARCHAR(4) NOT NULL,
+  code VARCHAR(4) PRIMARY KEY,
   name TEXT NOT NULL,
   host TEXT NOT NULL,
   port TEXT NOT NULL,
@@ -14,5 +13,3 @@ CREATE TABLE banks (
   password TEXT NOT NULL
 );
 
--- Sequence to be associated with a specific table column
-ALTER SEQUENCE sq_banks_id owned by banks.id;
