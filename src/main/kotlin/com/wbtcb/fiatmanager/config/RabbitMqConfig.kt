@@ -40,7 +40,5 @@ class RabbitMqConfig @Autowired constructor(
     @Bean
     fun consumerJackson2MessageConverter(): MappingJackson2MessageConverter = MappingJackson2MessageConverter()
 
-    companion object {
-
-    }
+    companion object
 }
