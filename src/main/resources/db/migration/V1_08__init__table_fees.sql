@@ -16,3 +16,6 @@ ALTER SEQUENCE sq_fees_id owned by fees.id;
 
 -- Add reference to transaction
 ALTER TABLE fees ADD CONSTRAINT fees_ref_transaction_id_fkey FOREIGN KEY (transaction_id) REFERENCES transactions (id);
+
+COMMENT ON TABLE fees
+  IS 'Transaction fee';

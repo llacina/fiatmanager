@@ -22,5 +22,5 @@ ALTER TABLE bank_accounts ADD CONSTRAINT bank_accounts_ref_currency_code_fkey FO
 -- Add reference to banks
 ALTER TABLE bank_accounts ADD CONSTRAINT bank_accounts_ref_bank_code_fkey FOREIGN KEY (bank_code) REFERENCES banks (code);
 
-COMMENT ON TABLE currencies
-  IS 'List of Wallets';
+COMMENT ON TABLE bank_accounts
+  IS 'List of Bank accounts for synchronize';

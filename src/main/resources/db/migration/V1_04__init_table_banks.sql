@@ -13,3 +13,6 @@ CREATE TABLE banks (
   password TEXT NOT NULL
 );
 
+COMMENT ON TABLE banks
+  IS 'List of Banks';
+

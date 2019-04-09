@@ -9,7 +9,7 @@ CREATE SEQUENCE sq_channels_id;
 -- Create table
 CREATE TABLE channels (
   id INTEGER PRIMARY KEY default nextval('sq_channels_id'),
-  code character varying(10) NOT NULL,                      -- code
+  code character varying(10) NOT NULL UNIQUE,               -- code
   name text NOT NULL,                                       -- name of channel
   created_at timestamp without time zone default now() not null,
 	CONSTRAINT cn_channel_code UNIQUE (code)                -- code is unique
