@@ -14,6 +14,7 @@ CREATE TABLE balance_entries (
     amount numeric(18,8) not null,
     status character varying(10) not null,
     type VARCHAR(10) not null,
+    note TEXT,                          -- Note for user (of fiatmanager)
     created_at timestamp without time zone default now() not null
 );
 

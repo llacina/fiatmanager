@@ -13,6 +13,7 @@ CREATE TABLE addresses (
     variable_symbol VARCHAR(10),
     constant_symbol VARCHAR(4),
     specific_symbol VARCHAR(10),
+    payee_message TEXT,                   -- Message for payee (e.g. for client receiving transaction
     created_at timestamp without time zone default now() not null,
     CONSTRAINT cn_bank_ident_currency_id UNIQUE (channel_id, bank_account_id, variable_symbol, constant_symbol, specific_symbol) -- channel_id, bank_account_id, combine variable_symbol, constant_symbol, specific_symbol, + currency_id is unique
 );
