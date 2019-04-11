@@ -9,7 +9,7 @@ CREATE SEQUENCE sq_transactions_id;
 -- Create table
 CREATE TABLE transactions (
     id INTEGER PRIMARY KEY default nextval('sq_transactions_id'),
-    txid TEXT not null,               -- The TXID of the transaction
+    txid TEXT not null,                                  -- The TXID of the transaction
     bank_account_id INTEGER not null,
     amount numeric(18,8) not null,
     prefix VARCHAR(6),
@@ -20,11 +20,12 @@ CREATE TABLE transactions (
     constant_symbol VARCHAR(4),
     specific_symbol VARCHAR(10),
     type VARCHAR(10) not null,
-    payer_message TEXT,                                -- Message for payer. Empty for incoming transactions
-    payee_message TEXT,                                -- Message for payee (e.g. for client receiving transaction
-    value_at timestamp without time zone not null,     -- Transaction value date, e.g. the day transaction \"happened\"
-    booking_at timestamp without time zone not null,   -- Transaction booking date, e.g. the day transaction was bookkeeped
-    note TEXT,                                         -- Note for user (of fiatmanager)
+    payment_type VARCHAR(10) not null default 'CASHLESS', -- CASHLESS/CASH payment type
+    payer_message TEXT,                                   -- Message for payer. Empty for incoming transactions
+    payee_message TEXT,                                   -- Message for payee (e.g. for client receiving transaction
+    value_at timestamp without time zone not null,        -- Transaction value date, e.g. the day transaction \"happened\"
+    booking_at timestamp without time zone not null,      -- Transaction booking date, e.g. the day transaction was bookkeeped
+    note TEXT,                                            -- Note for user (of fiatmanager)
     status character varying(10) not null,
     created_at timestamp without time zone default now() not null,
     CONSTRAINT cn_txid_bank_account_id UNIQUE (txid, bank_account_id) -- txid, bank_account_id is unique
