@@ -10,21 +10,11 @@ import org.springframework.transaction.annotation.Transactional
 @Transactional
 class BankRepositoryImpl : BankRepository {
 
-    override fun findAllasDto(): List<BankDto> {
-        var list = listOf<BankDto>()
-        for (item: Bank in this.findAll()) {
-            list += item.toBankDto()
-        }
-        return list
-    }
-
     override fun findAll(): List<Bank> {
         return Bank.all().toList()
     }
 
-    fun Bank.toBankDto(): BankDto = BankDto(
-        id = Integer(id.value),
-        code = code,
-        name = name
-    )
+    override fun findAllAsDto(): List<BankDto> {
+        return this.findAll().map { it.toBankDto() }
+    }
 }

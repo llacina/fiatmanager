@@ -27,9 +27,8 @@ class Bank(id: EntityID<Int>) : IntEntity(id) {
 
     companion object : IntEntityClass<Bank>(BanksTable)
 
-
-    fun Bank.toBankDto(): BankDto = BankDto(
-        id = Integer(id.value),
+    fun toBankDto(): BankDto = BankDto(
+        id = id.value,
         code = code,
         name = name
     )
