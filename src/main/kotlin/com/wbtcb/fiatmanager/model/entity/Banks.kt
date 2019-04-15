@@ -2,6 +2,7 @@
 
 package com.wbtcb.fiatmanager.model.entity
 
+import com.wbtcb.fiatmanager.dto.BankDto
 import org.jetbrains.exposed.dao.EntityID
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
@@ -25,4 +26,11 @@ class Bank(id: EntityID<Int>) : IntEntity(id) {
     var password by BanksTable.password
 
     companion object : IntEntityClass<Bank>(BanksTable)
+
+
+    fun Bank.toBankDto(): BankDto = BankDto(
+        id = Integer(id.value),
+        code = code,
+        name = name
+    )
 }
