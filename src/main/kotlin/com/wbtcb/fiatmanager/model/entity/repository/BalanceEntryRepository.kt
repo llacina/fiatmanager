@@ -9,5 +9,3 @@ interface BalanceEntryRepository {
 
     fun findAllAsDto(): List<BalanceEntryDto>
 }
-
-

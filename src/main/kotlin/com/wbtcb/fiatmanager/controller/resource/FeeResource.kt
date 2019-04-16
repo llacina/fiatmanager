@@ -18,4 +18,3 @@ class FeeResource @Autowired constructor(
         return querySpec.apply(feeRepository.findAllAsDto())
     }
 }
-

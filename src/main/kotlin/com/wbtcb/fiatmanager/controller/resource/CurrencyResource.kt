@@ -8,7 +8,6 @@ import io.crnk.core.resource.list.ResourceList
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
-
 @Component
 class CurrencyResource @Autowired constructor(
     private val currencyRepository: CurrencyRepository

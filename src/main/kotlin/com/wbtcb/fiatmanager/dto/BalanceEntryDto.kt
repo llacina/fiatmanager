@@ -9,13 +9,13 @@ import java.io.Serializable
 import java.math.BigDecimal
 
 @JsonApiResource(type = "balance-entries")
-data class BalanceEntryDto (
+data class BalanceEntryDto(
     @JsonApiId
     var id: Int,
     var currencyCode: String,
     var amount: BigDecimal,
     var status: TransactionStatus,
     var type: BalanceEntryType,
-    var note:   String,
+    var note: String,
     var createdAt: DateTime
 ) : Serializable

@@ -1,6 +1,5 @@
 package com.wbtcb.fiatmanager.model.entity.repository.impl
 
-
 import com.wbtcb.fiatmanager.dto.FeeDto
 import com.wbtcb.fiatmanager.model.entity.Fee
 import org.springframework.stereotype.Repository

@@ -10,7 +10,7 @@ import java.io.Serializable
 import java.math.BigDecimal
 
 @JsonApiResource(type = "transactions")
-data class TransactionDto (
+data class TransactionDto(
     @JsonApiId
     var id: Int,
     var txId: String,

@@ -6,7 +6,7 @@ import org.joda.time.DateTime
 import java.io.Serializable
 
 @JsonApiResource(type = "channels")
-data class ChannelDto (
+data class ChannelDto(
     @JsonApiId
     var id: Int,
     var code: String,
