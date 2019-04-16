@@ -2,6 +2,7 @@
 
 package com.wbtcb.fiatmanager.model.entity
 
+import com.wbtcb.fiatmanager.dto.FeeDto
 import org.jetbrains.exposed.dao.EntityID
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
@@ -19,4 +20,10 @@ class Fee(id: EntityID<Int>) : IntEntity(id) {
     var amount by FeesTable.amount
 
     companion object : IntEntityClass<Fee>(FeesTable)
+
+    fun toFeeDto(): FeeDto = FeeDto(
+        id = id.value,
+        type = type,
+        amount = amount
+    )
 }
