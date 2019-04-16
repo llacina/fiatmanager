@@ -2,6 +2,7 @@
 
 package com.wbtcb.fiatmanager.model.entity
 
+import com.wbtcb.fiatmanager.dto.BalanceEntryDto
 import org.jetbrains.exposed.dao.EntityID
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
@@ -35,4 +36,14 @@ class BalanceEntry(id: EntityID<Int>) : IntEntity(id) {
     var createdAt by BalanceEntriesTable.createdAt
 
     companion object : IntEntityClass<BalanceEntry>(BalanceEntriesTable)
+
+    fun toBalanceEntryDto(): BalanceEntryDto = BalanceEntryDto(
+        id = id.value,
+        amount = amount,
+        currencyCode = currencyCode,
+        status = status,
+        type = type,
+        note = note,
+        createdAt = createdAt
+    )
 }

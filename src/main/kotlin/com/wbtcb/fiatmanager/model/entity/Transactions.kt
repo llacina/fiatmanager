@@ -2,6 +2,7 @@
 
 package com.wbtcb.fiatmanager.model.entity
 
+import com.wbtcb.fiatmanager.dto.TransactionDto
 import org.jetbrains.exposed.dao.EntityID
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
@@ -54,4 +55,26 @@ class Transaction(id: EntityID<Int>) : IntEntity(id) {
     var createdAt by TransactionsTable.createdAt
 
     companion object : IntEntityClass<Transaction>(TransactionsTable)
+
+    fun toTransactionDto(): TransactionDto = TransactionDto(
+        id = id.value,
+        txId = txId,
+        amount = amount,
+        prefix = prefix,
+        accountNumber = accountNumber,
+        bankCode = bankCode,
+        iban = iban,
+        variableSymbol = variableSymbol,
+        constantSymbol = constantSymbol,
+        specificSymbol = specificSymbol,
+        type = type,
+        paymentType = paymentType,
+        payerMessage = payerMessage,
+        payeeMessage = payeeMessage,
+        valueAt = valueAt,
+        bookingAt = bookingAt,
+        note = note,
+        status = status,
+        createdAt = createdAt
+    )
 }

@@ -17,6 +17,13 @@ spring:
       simple:
         default-requeue-rejected: false
 
+# Crnk configuration for JSON API:
+crnk:
+  default-page-limit: 10
+  path-prefix: /api
+  security:
+    enabled: false
+
 fiatmanager:
   security:
     aes:
